@@ -13,7 +13,7 @@ const ROWS = 5;
 const LOGOS_PER_ROW = 6;
 const LOGO_WIDTH = 480; // px
 const CONTAINER_WIDTH = 2880; // px
-const BASE_SPEED = 0.3;
+const BASE_SPEED = 0.6; // x2 snelheid
 
 function getInitialLogoState() {
   // Verdeel de logo's over de rijen
@@ -105,16 +105,21 @@ export default function CasinoLogoTiles() {
   }
 
   return (
-    <div style={{
-      width: 1920,
-      height: 1080,
-      overflow: "hidden",
-      position: "relative",
-      background: "#fff",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
-    }}>
+    <div
+      style={{
+        width: 1920,
+        height: 1080,
+        overflow: "hidden",
+        position: "relative",
+        background: "#fff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        // Fade effect aan beide zijkanten, sterker en minder breed wit
+        maskImage: "linear-gradient(to right, transparent 0%, #fff 15%, #fff 85%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, #fff 15%, #fff 85%, transparent 100%)"
+      }}
+    >
       <div
         className="tiles tiles--rotated"
         style={{
