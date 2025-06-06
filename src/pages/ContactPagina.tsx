@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import HeroHeader from '@/components/HeroHeader';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/gebruikToastHook';
 import { Mail, MessageSquare } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';

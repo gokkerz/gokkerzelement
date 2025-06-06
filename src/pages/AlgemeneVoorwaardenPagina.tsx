@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';

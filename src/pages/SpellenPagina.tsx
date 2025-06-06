@@ -1,6 +1,6 @@
 import React from "react";
 import GameCard from "../components/GameCard";
-import Layout from "@/components/layout/Layout";
+import Layout from "@/components/layout/HoofdLayoutComponent";
 import HeroHeader from '@/components/HeroHeader';
 import { Helmet } from "react-helmet";
 import { Gift, User, Shield } from 'lucide-react';

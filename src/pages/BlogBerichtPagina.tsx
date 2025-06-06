@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
+import Layout from '@/components/layout/HoofdLayoutComponent';
+import { Button } from '@/components/ui/KnopComponent';
 import { BlogPostCard } from '@/components/BlogPostCard';
 import { BonusCard } from '@/components/BonusCard';
 import { Clock, User, Calendar, ArrowLeft, Share2 } from 'lucide-react';
-import { blogPosts } from '../lib/blogPosts';
+import { blogPosts } from '../lib/blogBerichtenData';
 import { Helmet } from 'react-helmet';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';

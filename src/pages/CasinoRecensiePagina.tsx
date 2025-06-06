@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
+import Layout from '@/components/layout/HoofdLayoutComponent';
+import { Button } from '@/components/ui/KnopComponent';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Star, Shield, Gift, Check, Clock, ThumbsUp, Info, Users, Gamepad2, Wallet, Award, Calendar, Mail, Phone, Lock } from 'lucide-react';
-import { casinoBrandColors } from '@/lib/casino-colors';
-import { casinos } from './Casinos';
+import { casinoBrandColors } from '@/lib/casinoKleurenData';
+import { casinos } from './CasinoOverzichtPagina';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import HeroHeader from '@/components/HeroHeader';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Separator } from '@/components/ui/separator';
-import { blogPosts } from '../lib/blogPosts';
+import { blogPosts } from '../lib/blogBerichtenData';
 import { BlogPostCard } from '@/components/BlogPostCard';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';

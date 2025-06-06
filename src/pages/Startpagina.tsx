@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import { Helmet } from 'react-helmet-async';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -27,7 +27,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import useIsMobile from '@/hooks/use-mobile';
+import useIsMobile from '@/hooks/gebruikMobielHook';
 import {
   Table,
   TableBody,
@@ -36,7 +36,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { casinoBrandColors } from '@/lib/casino-colors';
+import { casinoBrandColors } from '@/lib/casinoKleurenData';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import HeroHeader from '@/components/HeroHeader';
 import { Shield, Clock, Info, AlertTriangle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';

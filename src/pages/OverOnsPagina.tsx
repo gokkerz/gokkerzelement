@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import HeroHeader from '@/components/HeroHeader';
 import { Shield, Users, Award, MessageCircle, Gift, Star, Wallet, Search, ArrowRight, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';

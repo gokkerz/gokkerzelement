@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import { Helmet } from 'react-helmet-async';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -34,7 +34,7 @@ import {
   Calendar,
   Users,
 } from 'lucide-react';
-import { casinoBrandColors } from '@/lib/casino-colors';
+import { casinoBrandColors } from '@/lib/casinoKleurenData';
 import {
   Accordion,
   AccordionContent,

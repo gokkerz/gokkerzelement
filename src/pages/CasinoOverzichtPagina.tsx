@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/HoofdLayoutComponent';
 import { Helmet } from 'react-helmet-async';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Link } from 'react-router-dom';
 import { Star, Info, Shield, Check, ThumbsUp, Clock, Users, Gift } from 'lucide-react';
 import {
@@ -20,7 +20,7 @@ import {
   CardHeader,
   CardFooter,
 } from '@/components/ui/card';
-import useMediaQuery from '@/hooks/use-mobile';
+import useMediaQuery from '@/hooks/gebruikMobielHook';
 import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';

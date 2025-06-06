@@ -6,10 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/KnopComponent';
 import { Link } from 'react-router-dom';
 import { Star, Check } from 'lucide-react';
-import { casinoBrandColors } from '@/lib/casino-colors';
+import { casinoBrandColors } from '@/lib/casinoKleurenData';
 
 interface BonusCardProps {
   offer: {

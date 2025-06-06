@@ -1,20 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import Index from './pages/Index';
-import Casinos from './pages/Casinos';
-import CasinoReview from './pages/CasinoReview';
-import Bonussen from './pages/Bonussen';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import Contact from './pages/Contact';
-import VerantwoordGokken from './pages/VerantwoordGokken';
-import OverOns from './pages/OverOns';
-import NotFound from './pages/NotFound';
+import Startpagina from './pages/Startpagina';
+import CasinoOverzichtPagina from './pages/CasinoOverzichtPagina';
+import CasinoRecensiePagina from './pages/CasinoRecensiePagina';
+import BonussenPagina from './pages/BonussenPagina';
+import BlogPagina from './pages/BlogPagina';
+import BlogBerichtPagina from './pages/BlogBerichtPagina';
+import ContactPagina from './pages/ContactPagina';
+import VerantwoordGokkenPagina from './pages/VerantwoordGokkenPagina';
+import OverOnsPagina from './pages/OverOnsPagina';
+import PaginaNietGevonden from './pages/PaginaNietGevonden';
+import PrivacyBeleidPagina from './pages/PrivacyBeleidPagina';
+import CookieBeleidPagina from './pages/CookieBeleidPagina';
+import AlgemeneVoorwaardenPagina from './pages/AlgemeneVoorwaardenPagina';
+import SpellenPagina from './pages/SpellenPagina';
 import ScrollToTop from './components/ScrollToTop';
-import Privacybeleid from './pages/privacybeleid';
-import Cookiebeleid from './pages/cookiebeleid';
-import AlgemeneVoorwaarden from './pages/algemenevoorwaarden';
-import Games from './pages/Games';
 import './App.css';
 
 function App() {
@@ -23,20 +23,20 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/casinos" element={<Casinos />} />
-          <Route path="/casinos/:name" element={<CasinoReview />} />
-          <Route path="/bonussen" element={<Bonussen />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/verantwoord-gokken" element={<VerantwoordGokken />} />
-          <Route path="/over-ons" element={<OverOns />} />
-          <Route path="/privacybeleid" element={<Privacybeleid />} />
-          <Route path="/cookiebeleid" element={<Cookiebeleid />} />
-          <Route path="/algemenevoorwaarden" element={<AlgemeneVoorwaarden />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Startpagina />} />
+          <Route path="/casinos" element={<CasinoOverzichtPagina />} />
+          <Route path="/casinos/:name" element={<CasinoRecensiePagina />} />
+          <Route path="/bonussen" element={<BonussenPagina />} />
+          <Route path="/blog" element={<BlogPagina />} />
+          <Route path="/blog/:slug" element={<BlogBerichtPagina />} />
+          <Route path="/contact" element={<ContactPagina />} />
+          <Route path="/verantwoord-gokken" element={<VerantwoordGokkenPagina />} />
+          <Route path="/over-ons" element={<OverOnsPagina />} />
+          <Route path="/privacybeleid" element={<PrivacyBeleidPagina />} />
+          <Route path="/cookiebeleid" element={<CookieBeleidPagina />} />
+          <Route path="/algemenevoorwaarden" element={<AlgemeneVoorwaardenPagina />} />
+          <Route path="/games" element={<SpellenPagina />} />
+          <Route path="*" element={<PaginaNietGevonden />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
