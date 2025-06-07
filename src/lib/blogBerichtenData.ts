@@ -318,4 +318,18 @@ export const blogPosts = [
       "\n    <h2 style='font-size:2rem;font-weight:bold;'>🎰 Zware mishandeling na mislukte overval op casino: 'Gevaarlijke mannen'</h2>\n    <h2>Introductie</h2>\n    <p>Twee gewapende mannen hebben op vrijdagochtend 31 januari geprobeerd een overval te plegen op het Play World Casino in Made. Dat mislukte omdat het casino nog niet open was. Een voorbijganger moest het ontgelden en werd zwaar toegetakeld. In de uitzending van Bureau Brabant zijn beelden te zien van deze gruwelijke ochtend. Dit artikel is automatisch gegenereerd en zal binnenkort worden verrijkt met inhoud via Puter.js in de frontend.</p>\n    <h2>Keywords</h2>\n    <p>De top keywords van deze week zijn: online casino, gokkasten, jackpot, welkomstbonus, gratis spins, betrouwbare casino's, live roulette, mobiel gokken, casino apps, iDEAL casino.</p>\n    <h2>Lees het volledige verhaal</h2>\n    <p>Lees meer op <a href='https://www.omroepbrabant.nl/nieuws/4658895/zware-mishandeling-na-mislukte-overval-op-casino-gevaarlijke-mannen' target='_blank'>de oorspronkelijke bron</a>. 📰</p>\n    <h2>Verantwoord gokken</h2>\n    <p>Gokken moet leuk blijven. Zet nooit meer in dan je bereid bent te verliezen. Speel bewust. 🎯</p>\n    ",
     readTime: '7 min',
   },
-];
+].map((post) => {
+  let author = post.author;
+  let authorPhoto = '';
+  if (post.category === 'Nieuws') {
+    author = 'Linde';
+    authorPhoto = '/casinologos/casilogos/profielfotos/Linde Casino Expert Gokkerz.nl.webp';
+  } else if (post.category === 'Reviews') {
+    author = 'Ruben';
+    authorPhoto = '/casinologos/casilogos/profielfotos/Ruben Casino Expert Gokkerz.nl.webp';
+  } else if (post.category === 'Gids') {
+    author = 'Jack';
+    authorPhoto = '/casinologos/casilogos/profielfotos/Jack Casino Expert Gokkerz.nl.webp';
+  }
+  return { ...post, author, authorPhoto };
+});

@@ -62,66 +62,68 @@ export const BonusCard = ({ offer }: BonusCardProps) => {
   return (
     <Card
       key={offer.id}
-      className="casino-card-hover flex flex-col"
+      className="group flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-2xl bg-white shadow-lg"
       style={{
-        ['--brand-shadow-color' as any]: `${casinoBrandColors[offer.casinoName] || '#00CC66'}40`,
+        ['--brand-shadow-color' as any]: `${casinoBrandColors[offer.casinoName] || '#00CC66'}20`,
       }}
     >
-      <CardHeader className="p-4 text-center">
+      <CardHeader className="relative bg-gradient-to-b from-white to-gray-50/30 p-6 text-center">
         <div className="flex flex-col items-center">
-          <div className="relative mb-4">
+          <div className="relative mb-6">
             <img
               src={offer.casinoLogo}
               alt={offer.casinoName}
-              className="h-24 w-auto rounded-[10%]"
+              className="h-24 w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 transform items-center rounded-full bg-white/90 px-2 py-0.5 shadow-sm">
-              <Star className="mr-0.5 h-3 w-3 fill-yellow-400 text-yellow-400" />
-              <span className="text-xs font-medium">{offer.rating}</span>
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 transform">
+              <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-md">
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <span className="text-xs font-semibold">{offer.rating}</span>
+              </div>
             </div>
           </div>
-          <CardTitle className="mb-3 text-lg">{offer.casinoName}</CardTitle>
+          <div className="space-y-1">
+            <CardTitle className="text-lg">{offer.casinoName}</CardTitle>
+          </div>
         </div>
-        <div className="space-y-2">
-          <CardDescription className="flex flex-col items-center">
-            <span className="mb-2 text-5xl font-bold text-black">{offer.bonusAmount}</span>
-            <span className="text-lg font-medium text-gray-500">+ {offer.freeSpins} Free Spins</span>
-          </CardDescription>
+        <div className="mt-4 space-y-1">
+          <span className="text-3xl font-bold text-gray-900">{offer.bonusAmount}</span>
+          <p className="text-sm font-medium text-gray-500">{offer.description}</p>
         </div>
       </CardHeader>
 
-      <CardContent className="flex-grow px-4 py-2 text-center">
+      <CardContent className="flex-grow px-6 py-4">
         <ul className="space-y-2">
-          <li className="flex items-center justify-center text-sm">
-            <Check className="mr-2 h-4 w-4 flex-shrink-0 text-gokkerz-green" />
-            <span>{offer.requirements}</span>
+          <li className="flex items-center text-sm">
+            <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gokkerz-green/10 transition-colors group-hover:bg-gokkerz-green/15">
+              <Check className="h-4 w-4 text-gokkerz-green" />
+            </div>
+            <span className="text-gray-600">{offer.requirements}</span>
           </li>
-          <li className="flex items-center justify-center text-sm">
-            <Check className="mr-2 h-4 w-4 flex-shrink-0 text-gokkerz-green" />
-            <span>Nederlandse licentie</span>
+          <li className="flex items-center text-sm">
+            <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-gokkerz-green/10 transition-colors group-hover:bg-gokkerz-green/15">
+              <Check className="h-4 w-4 text-gokkerz-green" />
+            </div>
+            <span className="text-gray-600">Nederlandse licentie</span>
           </li>
         </ul>
       </CardContent>
 
-      <CardFooter className="px-4 pb-4 pt-2">
+      <CardFooter className="bg-gradient-to-t from-gray-50/50 to-white p-6 pt-4">
         <div className="flex w-full flex-col gap-2">
-          <Button 
-            className="button-pulse w-full bg-green-gradient py-6 text-base font-semibold shadow-md hover:opacity-90"
-            asChild
-          >
-            <a 
+          <Button className="button-pulse w-full bg-green-gradient py-6 text-base font-semibold shadow-md hover:opacity-90" asChild>
+            <a
               href={getCasinoUrl(offer.casinoName)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center"
             >
               Claim Bonus
             </a>
           </Button>
-          <Button variant="outline" className="w-full text-sm shadow-sm" asChild>
+          <Button variant="outline" className="w-full" asChild>
             <Link
               to={`/casinos/${offer.casinoName.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
-              className="flex w-full items-center justify-center"
+              className="flex items-center justify-center text-sm"
             >
               Lees Review
             </Link>

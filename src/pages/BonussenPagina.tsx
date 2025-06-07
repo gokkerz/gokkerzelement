@@ -44,6 +44,7 @@ import {
 import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { BonusCard } from '@/components/BonusCard';
 
 const Bonussen = () => {
   // Bonus offers data with all casinos
@@ -517,68 +518,7 @@ const Bonussen = () => {
         {/* Bonus Cards Grid */}
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {filteredBonuses.map((offer) => (
-            <Card
-              key={offer.id}
-              transparent
-              className="casino-card-hover flex flex-col"
-              style={{
-                ['--brand-shadow-color' as any]: `${casinoBrandColors[offer.casinoName] || '#00CC66'}40`,
-              }}
-            >
-              <CardHeader className="relative p-4 text-center">
-                <div className="flex flex-col items-center">
-                  <div className="relative mb-4">
-                    <img
-                      src={offer.casinoLogo}
-                      alt={offer.casinoName}
-                      className="h-24 w-auto rounded-[10%]"
-                    />
-                    <div className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 transform items-center rounded-full bg-white/90 px-2 py-0.5 shadow-sm">
-                      <Star className="mr-0.5 h-3 w-3 fill-yellow-400 text-yellow-400" />
-                      <span className="text-xs font-medium">{offer.rating}</span>
-                    </div>
-                  </div>
-                  <CardTitle className="mb-3 text-lg">{offer.casinoName}</CardTitle>
-                </div>
-                <div className="space-y-2">
-                  <CardDescription className="flex flex-col items-center">
-                    <span className="mb-2 text-5xl font-bold text-black">{offer.bonusAmount}</span>
-                    <span className="text-lg font-medium text-gray-500">
-                      + {offer.freeSpins} Free Spins
-                    </span>
-                  </CardDescription>
-                </div>
-              </CardHeader>
-
-              <CardContent className="flex-grow px-4 py-2 text-center">
-                <ul className="space-y-2">
-                  <li className="flex items-center justify-center text-sm">
-                    <Check className="mr-2 h-4 w-4 flex-shrink-0 text-gokkerz-green" />
-                    <span>{offer.requirements}</span>
-                  </li>
-                  <li className="flex items-center justify-center text-sm">
-                    <Check className="mr-2 h-4 w-4 flex-shrink-0 text-gokkerz-green" />
-                    <span>Nederlandse licentie</span>
-                  </li>
-                </ul>
-              </CardContent>
-
-              <CardFooter className="px-4 pb-4 pt-2">
-                <div className="flex w-full flex-col gap-2">
-                  <Button className="button-pulse w-full bg-green-gradient py-6 text-base font-semibold shadow-md hover:opacity-90">
-                    Claim Bonus
-                  </Button>
-                  <Button variant="outline" className="w-full text-sm shadow-sm" asChild>
-                    <Link
-                      to={`/casinos/${offer.casinoName.toLowerCase().replace(/[']/g, '').replace(/\s+/g, '-')}`}
-                      className="flex w-full items-center justify-center"
-                    >
-                      Lees Review
-                    </Link>
-                  </Button>
-                </div>
-              </CardFooter>
-            </Card>
+            <BonusCard key={offer.id} offer={offer} />
           ))}
         </div>
 

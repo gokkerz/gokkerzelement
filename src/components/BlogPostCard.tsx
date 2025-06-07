@@ -2,10 +2,19 @@ import { Calendar, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const BlogPostCard = ({ post }) => {
+  // Zorg dat de juiste foto bij de juiste naam staat
+  let authorPhoto = post.authorPhoto;
+  if (post.author === 'Linde') {
+    authorPhoto = '/casinologos/casilogos/profielfotos/Linde Casino Expert Gokkerz.nl.webp';
+  } else if (post.author === 'Ruben') {
+    authorPhoto = '/casinologos/casilogos/profielfotos/Ruben Casino Expert Gokkerz.nl.webp';
+  } else if (post.author === 'Jack') {
+    authorPhoto = '/casinologos/casilogos/profielfotos/Jack Casino Expert Gokkerz.nl.webp';
+  }
   return (
     <Link to={`/blog/${post.slug}`} className="block">
-      <div className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
-        <div className="relative h-40">
+      <div className="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl max-h-[410px] flex flex-col">
+        <div className="relative h-40 min-h-[160px]">
           <img
             src={post.image}
             alt={post.title}
@@ -18,14 +27,23 @@ export const BlogPostCard = ({ post }) => {
             </span>
           </div>
         </div>
-        <div className="p-4">
-          <h3 className="text-lg font-semibold line-clamp-2 group-hover:text-gokkerz-green transition-colors">
+        <div className="p-4 flex flex-col flex-1">
+          <h3 className="text-lg font-semibold group-hover:text-gokkerz-green transition-colors line-clamp-1">
             {post.title}
           </h3>
           <p className="text-sm text-gray-600 mt-2 line-clamp-2">
             {post.excerpt}
           </p>
           <div className="flex items-center justify-between text-xs text-gray-500 mt-4">
+            <span className="flex items-center gap-2">
+              <img
+                src={authorPhoto}
+                alt={post.author}
+                className="h-7 w-7 rounded-full object-cover object-top border border-gray-200 bg-white"
+                style={{ minWidth: 28, minHeight: 28 }}
+              />
+              <span className="font-medium text-gray-900">{post.author}</span>
+            </span>
             <span className="flex items-center gap-1">
               <Calendar className="h-4 w-4" /> {post.date}
             </span>

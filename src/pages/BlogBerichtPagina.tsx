@@ -118,17 +118,20 @@ const BlogPost = () => {
             {/* Author and Date */}
             <div className="flex items-center justify-between gap-4 sm:justify-end">
               <div className="flex items-center gap-2 sm:gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gokkerz-green/10 sm:h-10 sm:w-10">
-                  <User className="h-4 w-4 text-gokkerz-green sm:h-5 sm:w-5" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xs font-medium text-gray-900 sm:text-sm">Gokkerz Team</span>
+                <img
+                  src={post.authorPhoto}
+                  alt={post.author}
+                  className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover object-top border border-gray-200 bg-white"
+                  style={{ minWidth: 32, minHeight: 32 }}
+                />
+                <div className="flex flex-col items-start">
+                  <span className="text-xs font-medium text-gray-900 sm:text-sm text-left">{post.author}</span>
                   <span className="text-xs text-gray-500">Casino Expert</span>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 border-l pl-4 text-xs text-gray-500 sm:gap-2 sm:pl-6 sm:text-sm">
                 <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                <time>22 april 2025</time>
+                <time>{post.date}</time>
               </div>
             </div>
           </div>
@@ -198,18 +201,37 @@ const BlogPost = () => {
               </div>
 
               {/* Author Bio */}
-              <div className="mb-8 rounded-xl bg-gradient-to-br from-gokkerz-green/10 to-green-100 p-4 sm:mb-12 sm:rounded-2xl sm:p-8">
-                <div className="flex items-start gap-4 sm:gap-6">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gokkerz-green/20 sm:h-16 sm:w-16">
-                    <User className="h-6 w-6 text-gokkerz-green sm:h-8 sm:w-8" />
-                  </div>
-                  <div>
+              <div className="mb-8 flex justify-center">
+                <div className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+                  <img
+                    src={post.authorPhoto}
+                    alt={post.author}
+                    className="h-24 w-24 rounded-lg object-cover object-top shadow-md bg-white mb-3 sm:mb-0 self-start"
+                    style={{ minWidth: 96, minHeight: 96 }}
+                  />
+                  <div className="flex-1 text-left">
                     <h3 className="mb-2 text-lg font-semibold sm:text-xl">Over de auteur</h3>
-                    <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
-                      {post.author} is een ervaren expert op het gebied van online casino's en
-                      gambling in Nederland. Met jarenlange ervaring in de sector deelt{' '}
-                      {post.author} waardevolle inzichten en tips voor verantwoord gokken.
-                    </p>
+                    {post.author === 'Linde' && (
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                        Linde is onze nieuwsredacteur en volgt dagelijks de ontwikkelingen in de online
+                        casino wereld. Met een scherp oog voor trends en actualiteit brengt zij het
+                        laatste nieuws en de belangrijkste updates voor spelers in Nederland.
+                      </p>
+                    )}
+                    {post.author === 'Ruben' && (
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                        Ruben is dé reviewer van Gokkerz.nl. Hij test en beoordeelt alle casino’s en
+                        spellen tot in detail. Zijn eerlijke mening en uitgebreide ervaring zorgen
+                        ervoor dat jij altijd weet waar je aan toe bent bij een nieuwe aanbieder.
+                      </p>
+                    )}
+                    {post.author === 'Jack' && (
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                        Jack is onze gidsenspecialist. Hij schrijft heldere uitleg en praktische
+                        stappenplannen voor zowel beginnende als gevorderde spelers. Met zijn tips haal
+                        je het maximale uit je casino-ervaring.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
