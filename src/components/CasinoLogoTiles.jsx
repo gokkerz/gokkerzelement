@@ -13,7 +13,7 @@ const ROWS = 5;
 const LOGOS_PER_ROW = 6;
 const LOGO_WIDTH = 480; // px
 const CONTAINER_WIDTH = 2880; // px
-const BASE_SPEED = 0.6; // x2 snelheid
+const BASE_SPEED = 1.2; // Verdubbelde snelheid
 
 function getInitialLogoState() {
   // Verdeel de logo's over de rijen
