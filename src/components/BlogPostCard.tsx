@@ -1,4 +1,4 @@
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const BlogPostCard = ({ post }) => {
@@ -47,9 +47,6 @@ export const BlogPostCard = ({ post }) => {
             <span className="flex items-center gap-1">
               <Calendar className="h-4 w-4" /> {post.date}
             </span>
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" /> {post.readTime}
-            </span>
           </div>
         </div>
       </div>
@@ -78,9 +75,6 @@ export const BonusCard = ({ offer }) => {
         <div className="mt-4 flex justify-between items-center">
           <span className="text-xs flex items-center gap-1">
             <Calendar className="h-4 w-4" /> {offer.validUntil}
-          </span>
-          <span className="text-xs flex items-center gap-1">
-            <Clock className="h-4 w-4" /> {offer.requirements}
           </span>
         </div>
       </div>

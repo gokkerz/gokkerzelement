@@ -105,19 +105,19 @@ const BlogPost = () => {
       <div className="border-b border-gray-100 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 md:py-4">
-            {/* Category and Read Time */}
+            {/* Category */}
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center rounded-full bg-gokkerz-green px-2.5 py-0.5 text-xs font-medium text-white sm:text-sm">
-                Nieuws
-              </span>
-              <span className="flex items-center text-xs text-gray-500 sm:text-sm">
-                <Clock className="mr-1 h-3.5 w-3.5 sm:h-4 sm:w-4" />4 min leestijd
+                {post.category}
               </span>
             </div>
-
-            {/* Author and Date */}
-            <div className="flex items-center justify-between gap-4 sm:justify-end">
-              <div className="flex items-center gap-2 sm:gap-3">
+            {/* Datum links, profielfoto rechts */}
+            <div className="flex items-center justify-between gap-4 sm:justify-end w-full">
+              <div className="flex items-center gap-1.5 text-xs text-gray-500 sm:gap-2 sm:text-sm">
+                <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <time>{post.date}</time>
+              </div>
+              <div className="flex items-center gap-2 ml-auto">
                 <img
                   src={post.authorPhoto}
                   alt={post.author}
@@ -128,10 +128,6 @@ const BlogPost = () => {
                   <span className="text-xs font-medium text-gray-900 sm:text-sm text-left">{post.author}</span>
                   <span className="text-xs text-gray-500">Casino Expert</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-1.5 border-l pl-4 text-xs text-gray-500 sm:gap-2 sm:pl-6 sm:text-sm">
-                <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                <time>{post.date}</time>
               </div>
             </div>
           </div>
@@ -149,7 +145,7 @@ const BlogPost = () => {
 
         <div className="container mx-auto h-full px-4">
           <div className="relative flex h-full max-w-4xl flex-col justify-end pb-8 sm:pb-16">
-            <h1 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl text-left">
               {post.title}
             </h1>
           </div>
