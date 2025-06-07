@@ -1,5 +1,4 @@
 import React from "react";
-import "./base.css";
 
 const LOGOS = [
   "365.svg", "711.svg", "777.svg", "bet mgm.svg", "betcity.svg", "betnation.svg",
@@ -9,9 +8,9 @@ const LOGOS = [
   "unibet.svg", "vbet.svg", "winnit.svg", "ze bet.svg"
 ];
 
-const ROWS = 5;
+const ROWS = 9;
 const LOGO_WIDTH = 480;
-const VISIBLE_LOGOS = 5;  // Number of logos visible at once
+const VISIBLE_LOGOS = 9;  // Number of logos visible at once
 const TOTAL_LOGOS = 9;    // Total logos in a row (5 visible + 4 for transition)
 const CONTAINER_WIDTH = LOGO_WIDTH * TOTAL_LOGOS;
 
