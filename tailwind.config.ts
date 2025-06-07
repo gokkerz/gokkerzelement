@@ -94,6 +94,7 @@ export default {
           'medium-gray': '#E9ECEF',
           'dark-gray': '#6C757D',
           black: '#212529',
+          'off-white': '#FCFCFC',
         },
       },
       borderRadius: {

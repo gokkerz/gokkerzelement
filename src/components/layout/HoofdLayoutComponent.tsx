@@ -13,7 +13,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-50/30">
+    <div className="w-full min-h-screen flex flex-col bg-gokkerz-off-white">
       <ScrollToTopOnMount />
       <KoptekstComponent />
       <main className="flex-grow w-full pt-12 sm:pt-16 transition-all duration-300">
@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-20 bg-gokkerz-off-white relative overflow-hidden">
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="glassmorphism p-12 text-center relative overflow-hidden">
