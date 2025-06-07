@@ -1,77 +1,14 @@
 import React from 'react';
 import Layout from '@/components/layout/HoofdLayoutComponent';
 import HeroHeader from '@/components/HeroHeader';
-import { Shield, Clock, Info, AlertTriangle } from 'lucide-react';
+import { Shield, Info, AlertTriangle, Clock, BookOpen, Users, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/KnopComponent';
-import { Separator } from '@/components/ui/separator';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link } from 'react-router-dom';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const VerantwoordGokken = () => {
-  const warningSignsList = [
-    "Steeds meer tijd besteden aan gokken",
-    "Gokken om verloren geld terug te winnen",
-    "Liegen tegen familie en vrienden over gokgedrag",
-    "Geld lenen of stelen om te kunnen gokken",
-    "Onrustig of prikkelbaar worden bij pogingen om te stoppen",
-    "Relaties, werk of opleiding in gevaar brengen door gokken",
-    "Denken aan gokken wanneer je andere dingen doet",
-    "Gokken met steeds grotere bedragen om dezelfde opwinding te voelen"
-  ];
-
-  const selfHelpToolsList = [
-    {
-      title: "Stel limieten in",
-      description: "Bepaal vooraf hoeveel tijd en geld je wilt besteden en houd je daaraan."
-    },
-    {
-      title: "Houd een dagboek bij",
-      description: "Noteer wanneer en waarom je gokt, en hoe je je daarbij voelt."
-    },
-    {
-      title: "Vind alternatieven",
-      description: "Zoek andere activiteiten die dezelfde positieve gevoelens geven."
-    },
-    {
-      title: "Vermijd triggers",
-      description: "Herken situaties die je aanzetten tot gokken en probeer deze te vermijden."
-    },
-    {
-      title: "Praat erover",
-      description: "Deel je zorgen met iemand die je vertrouwt."
-    }
-  ];
-
-  const helpResourcesList = [
-    {
-      name: "AGOG (Anonieme Gokkers Omgeving Gokkers)",
-      website: "https://www.agog.nl",
-      phone: "088-7024444",
-      description: "Zelfhulpgroep voor mensen met gokproblemen en hun naasten."
-    },
-    {
-      name: "Loket Kansspel",
-      website: "https://www.loketkansspel.nl",
-      phone: "0900-1995",
-      description: "Centraal meldpunt voor vragen en problemen rond kansspelen."
-    },
-    {
-      name: "Jellinek",
-      website: "https://www.jellinek.nl",
-      phone: "088-5051220",
-      description: "Professionele hulp bij verslavingsproblematiek."
-    },
-    {
-      name: "Trimbos-instituut",
-      website: "https://www.trimbos.nl",
-      phone: "0900-1995",
-      description: "Kennis en hulp bij mentale gezondheid en verslaving."
-    }
-  ];
-
   return (
     <Layout>
       <Helmet>
@@ -79,193 +16,153 @@ const VerantwoordGokken = () => {
         <meta name="description" content="Leer hoe je veilig en verantwoord kunt gokken. Handige tips, tools en hulp bij gokproblemen. ✓ Preventie ✓ Hulpinstanties ✓ Direct contact" />
         <meta name="keywords" content="verantwoord gokken, veilig gokken, gokverslaving hulp, gokproblemen, cruks register, verslavingszorg" />
         <link rel="canonical" href="https://gokkerz.nl/verantwoord-gokken" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Verantwoord Gokken | Tips & Hulp bij Gokproblemen" />
-        <meta property="og:description" content="Leer hoe je veilig en verantwoord kunt gokken. Handige tips, tools en hulp bij gokproblemen." />
-        <meta property="og:url" content="https://gokkerz.nl/verantwoord-gokken" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Verantwoord Gokken | Tips & Hulp bij Gokproblemen" />
-        <meta name="twitter:description" content="Hulp en advies voor verantwoord gokken. Direct toegang tot hulpinstanties." />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "Verantwoord Gokken - Tips & Hulp bij Gokproblemen",
-            "description": "Complete gids voor verantwoord gokken met tips, hulpmiddelen en contactgegevens van hulpinstanties.",
-            "author": {
-              "@type": "Organization",
-              "name": "Gokkerz.nl"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Gokkerz.nl",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://gokkerz.nl/assets/Gokkerz.nl.svg"
-              }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://gokkerz.nl/verantwoord-gokken"
-            },
-            "dateModified": "2025-04-30"
-          })}
-        </script>
       </Helmet>
       <HeroHeader
-        label="Veilig & Verantwoord Gokken"
-        title={<><span className="bg-gradient-to-r from-gokkerz-green to-green-600 bg-clip-text text-transparent">Verantwoord</span> Gokken</>}
-        description="Leer hoe je veilig en verantwoord online gokt. Ontdek tips, tools en hulpbronnen om controle te houden en probleemgokken te voorkomen. Gokkerz.nl is jouw gids voor verantwoord speelplezier."
+        label="Verantwoord Gokken"
+        title={<><span className="text-gokkerz-green">Speel Veilig & Bewust</span></>}
+        description="Alles over veilig, verantwoord en plezierig gokken. Herken risico’s, ontdek tips en vind direct hulp als het nodig is."
         bullets={[
           { icon: <Shield className="h-5 w-5 text-gokkerz-green" />, text: 'KSA-vergunning & veiligheid' },
-          { icon: <Clock className="h-5 w-5 text-gokkerz-green" />, text: 'Stel limieten & neem pauzes' },
-          { icon: <AlertTriangle className="h-5 w-5 text-gokkerz-green" />, text: 'Herken risicogedrag' },
+          { icon: <HelpCircle className="h-5 w-5 text-gokkerz-green" />, text: 'Direct hulp bij problemen' },
         ]}
       />
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Warning Signs with improved layout */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-center">Waarschuwingssignalen</h2>
-            <p className="text-center text-gray-700 mb-8 text-lg max-w-2xl mx-auto">
-              Het is belangrijk om de signalen van problematisch gokgedrag te herkennen, zowel bij jezelf als bij anderen.
-            </p>
-            
-            <div className="glassmorphism p-8 md:p-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {warningSignsList.map((sign, index) => (
-                  <div key={index} className="flex items-start p-4 bg-red-50 border border-red-100 rounded-lg hover:shadow-md transition-shadow">
-                    <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 mr-4 flex-shrink-0 mt-1">
-                      <Info className="h-5 w-5" />
-                    </div>
-                    <span className="text-lg">{sign}</span>
-                  </div>
-                ))}
+        <div className="mx-auto w-full max-w-6xl space-y-10">
+          {/* Waarschuwingssignalen */}
+          <Card className="p-6 md:p-10 shadow-md hover:shadow-xl transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="text-2xl md:text-3xl flex items-center gap-2">
+                <AlertTriangle className="h-6 w-6 text-gokkerz-green" /> Herken de Signalen
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-base md:text-lg">
+                <li className="flex items-center gap-3"><Clock className="h-6 w-6 text-gokkerz-green flex-shrink-0" /><span>Meer tijd of geld kwijt aan gokken</span></li>
+                <li className="flex items-center gap-3"><Info className="h-6 w-6 text-gokkerz-green flex-shrink-0" /><span>Liegen over je gokgedrag</span></li>
+                <li className="flex items-center gap-3"><AlertTriangle className="h-6 w-6 text-gokkerz-green flex-shrink-0" /><span>Onrustig bij stoppen</span></li>
+                <li className="flex items-center gap-3"><Shield className="h-6 w-6 text-gokkerz-green flex-shrink-0" /><span>Gokken om verliezen terug te winnen</span></li>
+                <li className="flex items-center gap-3"><Users className="h-6 w-6 text-gokkerz-green flex-shrink-0" /><span>Geld lenen voor gokken</span></li>
+                <li className="flex items-center gap-3"><BookOpen className="h-6 w-6 text-gokkerz-green flex-shrink-0" /><span>Relaties of werk in gevaar brengen</span></li>
+              </ul>
+              <div className="mt-8 p-4 bg-green-50 border-l-4 border-gokkerz-green rounded-lg text-gokkerz-green text-center text-base md:text-lg font-semibold">
+                Herken je deze signalen? Praat erover of zoek hulp. Je staat er niet alleen voor.
               </div>
-              
-              <div className="mt-10 p-6 bg-yellow-50 border border-yellow-100 rounded-lg">
-                <p className="font-medium text-center text-lg">
-                  Herken je meerdere van deze signalen bij jezelf of iemand anders? 
-                  Dan kan er sprake zijn van problematisch gokgedrag en is het verstandig om hulp te zoeken.
-                </p>
-              </div>
-            </div>
+            </CardContent>
+          </Card>
+
+          {/* Tips & Tools */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+              <Shield className="mb-3 h-8 w-8 text-gokkerz-green" />
+              <span className="font-semibold mb-1 text-lg">Stel limieten in</span>
+              <span className="text-sm text-gray-700">Bepaal vooraf je maximale tijd en geld. Zo houd je controle over je spelgedrag en voorkom je verrassingen.</span>
+            </Card>
+            <Card className="p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+              <Clock className="mb-3 h-8 w-8 text-gokkerz-green" />
+              <span className="font-semibold mb-1 text-lg">Neem pauzes</span>
+              <span className="text-sm text-gray-700">Stop op tijd en speel bewust. Regelmatige pauzes helpen je om met een frisse blik te blijven spelen.</span>
+            </Card>
+            <Card className="p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+              <BookOpen className="mb-3 h-8 w-8 text-gokkerz-green" />
+              <span className="font-semibold mb-1 text-lg">Ken de regels</span>
+              <span className="text-sm text-gray-700">Lees altijd de bonus- en spelvoorwaarden. Zo weet je waar je aan toe bent en kom je niet voor verrassingen te staan.</span>
+            </Card>
           </div>
-          
-          {/* Self-Help Tools with improved layout */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-center">Zelfhulp Tools</h2>
-            <p className="text-center text-gray-700 mb-8 text-lg max-w-2xl mx-auto">
-              Deze tools kunnen je helpen om je gokgedrag onder controle te houden:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {selfHelpToolsList.map((tool, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader>
-                    <CardTitle className="text-xl mb-2">{tool.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700 text-lg">{tool.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-          
-          {/* Casino Tools with improved layout */}
-          <div className="glassmorphism p-8 md:p-12 mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Hulpmiddelen bij Online Casino's</h2>
-            <p className="mb-8 text-gray-700 text-lg text-center max-w-2xl mx-auto">
-              Legale Nederlandse online casino's bieden verschillende tools om spelers te helpen verantwoord te spelen:
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 border border-gokkerz-green/20 rounded-lg bg-gokkerz-green/5 hover:shadow-md transition-all">
-                <h3 className="font-bold text-xl mb-3">Stortingslimieten</h3>
-                <p className="text-lg">Stel in hoeveel je maximaal wilt storten per dag, week of maand.</p>
-              </div>
-              
-              <div className="p-6 border border-gokkerz-green/20 rounded-lg bg-gokkerz-green/5 hover:shadow-md transition-all">
-                <h3 className="font-bold text-xl mb-3">Tijdslimieten</h3>
-                <p className="text-lg">Beperk de tijd die je doorbrengt op een goksite.</p>
-              </div>
-              
-              <div className="p-6 border border-gokkerz-green/20 rounded-lg bg-gokkerz-green/5 hover:shadow-md transition-all">
-                <h3 className="font-bold text-xl mb-3">Verlieslimieten</h3>
-                <p className="text-lg">Stel in hoeveel je maximaal wilt verliezen binnen een bepaalde periode.</p>
-              </div>
-              
-              <div className="p-6 border border-gokkerz-green/20 rounded-lg bg-gokkerz-green/5 hover:shadow-md transition-all">
-                <h3 className="font-bold text-xl mb-3">Realiteitscheck</h3>
-                <p className="text-lg">Ontvang meldingen over hoe lang je al aan het spelen bent.</p>
-              </div>
-              
-              <div className="p-6 border border-gokkerz-green/20 rounded-lg bg-gokkerz-green/5 hover:shadow-md transition-all">
-                <h3 className="font-bold text-xl mb-3">Tijdelijke pauze</h3>
-                <p className="text-lg">Neem een korte pauze van gokken, variërend van 24 uur tot 6 weken.</p>
-              </div>
-              
-              <div className="p-6 border border-gokkerz-green/20 rounded-lg bg-gokkerz-green/5 hover:shadow-md transition-all">
-                <h3 className="font-bold text-xl mb-3">Zelfuitsluiting</h3>
-                <p className="text-lg">Sluit jezelf voor langere tijd uit van een casino of van alle Nederlandse casino's via CRUKS.</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Help Resources with improved layout */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-center">Hulpbronnen</h2>
-            <p className="text-center text-gray-700 mb-8 text-lg max-w-2xl mx-auto">
-              Als jij of iemand in je omgeving problemen heeft met gokken, zijn er verschillende organisaties die kunnen helpen:
-            </p>
-            
-            <div className="space-y-6">
-              {helpResourcesList.map((resource, index) => (
-                <div key={index} className="glassmorphism p-8 hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-bold text-2xl mb-3">{resource.name}</h3>
-                  <p className="text-gray-700 text-lg mb-6">{resource.description}</p>
-                  <div className="flex flex-wrap items-center justify-center gap-4">
-                    <Button asChild variant="outline" className="py-6 text-lg">
-                      <a href={resource.website} target="_blank" rel="noopener noreferrer" className="min-w-[200px] flex items-center justify-center">
-                        Bezoek Website
-                      </a>
-                    </Button>
-                    <Button asChild className="bg-green-gradient hover:opacity-90 py-6 text-lg">
-                      <a href={`tel:${resource.phone}`} className="min-w-[200px] flex items-center justify-center">
-                        Bel {resource.phone}
-                      </a>
-                    </Button>
+
+          {/* Hulp & Organisaties */}
+          <Card className="p-6 md:p-10 shadow-md hover:shadow-xl transition-shadow duration-300 mt-2">
+            <CardHeader>
+              <CardTitle className="text-2xl md:text-3xl font-bold text-black mb-1 flex items-center gap-2">
+                <HelpCircle className="h-7 w-7 text-gokkerz-green" /> Hulp & Organisaties
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-2">
+                {/* AGOG */}
+                <div className="rounded-xl border border-gray-100 p-7 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-2">
+                  <span className="font-extrabold text-2xl text-black mb-1">AGOG</span>
+                  <span className="text-base text-gray-800 mb-2">De Anonieme Gokkers Omgeving Gokkers (AGOG) is een landelijke zelfhulpgroep voor mensen met gokproblemen én hun naasten. Je kunt er terecht voor lotgenotencontact, steun en praktische tips om grip te krijgen op je situatie.</span>
+                  <div className="flex justify-center items-center gap-6 mt-2">
+                    <a href="https://www.agog.nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gokkerz-green font-semibold underline underline-offset-2">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" /></svg>
+                      agog.nl
+                    </a>
+                    <a href="tel:088-7024444" className="flex items-center gap-2 text-green-700 font-semibold">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V21a1 1 0 01-1.09 1A19.72 19.72 0 013 5.09 1 1 0 014 4h4.09a1 1 0 011 .75l1.13 4.52a1 1 0 01-.29 1L8.21 12.21a16 16 0 007.58 7.58l1.94-1.94a1 1 0 011-.29l4.52 1.13a1 1 0 01.75 1V21z" /></svg>
+                      088-7024444
+                    </a>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Final CTA with improved layout */}
-          <div className="text-center glassmorphism p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Gokken moet een plezierige activiteit blijven</h2>
-            <p className="text-gray-700 mb-8 text-lg max-w-2xl mx-auto">
-              Onthoud: als gokken geen plezier meer is, is het tijd om een stap terug te doen. 
-              Bij twijfel, aarzel niet om hulp te zoeken. Je staat er niet alleen voor.
-            </p>
-            <Button asChild className="bg-green-gradient hover:opacity-90 button-pulse py-6 text-lg min-w-[200px]">
-              <a href="https://www.loketkansspel.nl" target="_blank" rel="noopener noreferrer">
-                Direct hulp zoeken
-              </a>
-            </Button>
-          </div>
+                {/* Loket Kansspel */}
+                <div className="rounded-xl border border-gray-100 p-7 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-2">
+                  <span className="font-extrabold text-2xl text-black mb-1">Loket Kansspel</span>
+                  <span className="text-base text-gray-800 mb-2">Het Loket Kansspel is het centrale meldpunt voor vragen en problemen rond kansspelen. Je kunt hier terecht voor advies, doorverwijzing en directe hulp, zowel voor jezelf als voor familie of vrienden.</span>
+                  <div className="flex justify-center items-center gap-6 mt-2">
+                    <a href="https://www.loketkansspel.nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gokkerz-green font-semibold underline underline-offset-2">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" /></svg>
+                      loketkansspel.nl
+                    </a>
+                    <a href="tel:0900-1995" className="flex items-center gap-2 text-green-700 font-semibold">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V21a1 1 0 01-1.09 1A19.72 19.72 0 013 5.09 1 1 0 014 4h4.09a1 1 0 011 .75l1.13 4.52a1 1 0 01-.29 1L8.21 12.21a16 16 0 007.58 7.58l1.94-1.94a1 1 0 011-.29l4.52 1.13a1 1 0 01.75 1V21z" /></svg>
+                      0900-1995
+                    </a>
+                  </div>
+                </div>
+                {/* Jellinek */}
+                <div className="rounded-xl border border-gray-100 p-7 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-2">
+                  <span className="font-extrabold text-2xl text-black mb-1">Jellinek</span>
+                  <span className="text-base text-gray-800 mb-2">Jellinek is een toonaangevende instelling voor verslavingszorg. Je kunt er terecht voor professionele hulp, advies en behandeling bij gokverslaving, zowel online als op locatie.</span>
+                  <div className="flex justify-center items-center gap-6 mt-2">
+                    <a href="https://www.jellinek.nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gokkerz-green font-semibold underline underline-offset-2">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" /></svg>
+                      jellinek.nl
+                    </a>
+                    <a href="tel:088-5051220" className="flex items-center gap-2 text-green-700 font-semibold">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V21a1 1 0 01-1.09 1A19.72 19.72 0 013 5.09 1 1 0 014 4h4.09a1 1 0 011 .75l1.13 4.52a1 1 0 01-.29 1L8.21 12.21a16 16 0 007.58 7.58l1.94-1.94a1 1 0 011-.29l4.52 1.13a1 1 0 01.75 1V21z" /></svg>
+                      088-5051220
+                    </a>
+                  </div>
+                </div>
+                {/* Trimbos-instituut */}
+                <div className="rounded-xl border border-gray-100 p-7 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-2">
+                  <span className="font-extrabold text-2xl text-black mb-1">Trimbos-instituut</span>
+                  <span className="text-base text-gray-800 mb-2">Het Trimbos-instituut is hét kenniscentrum voor mentale gezondheid en verslaving. Hier vind je betrouwbare informatie, preventietips en kun je terecht voor advies en doorverwijzing naar passende hulp.</span>
+                  <div className="flex justify-center items-center gap-6 mt-2">
+                    <a href="https://www.trimbos.nl" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gokkerz-green font-semibold underline underline-offset-2">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" /></svg>
+                      trimbos.nl
+                    </a>
+                    <a href="tel:0900-1995" className="flex items-center gap-2 text-green-700 font-semibold">
+                      <svg className="h-5 w-5 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92V21a1 1 0 01-1.09 1A19.72 19.72 0 013 5.09 1 1 0 014 4h4.09a1 1 0 011 .75l1.13 4.52a1 1 0 01-.29 1L8.21 12.21a16 16 0 007.58 7.58l1.94-1.94a1 1 0 011-.29l4.52 1.13a1 1 0 01.75 1V21z" /></svg>
+                      0900-1995
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Slot & Call to Action */}
+          <Card className="p-8 md:p-12 text-center bg-green-50 border-0 shadow-md hover:shadow-xl transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="text-2xl md:text-3xl flex items-center gap-2 justify-center">
+                <Shield className="h-6 w-6 text-gokkerz-green" /> Gokken moet leuk blijven!
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-6 text-lg md:text-xl max-w-2xl mx-auto">
+                Gokken is bedoeld als ontspanning. Merk je dat het geen plezier meer geeft? Neem een pauze of zoek hulp. Je staat er nooit alleen voor.
+              </p>
+              <Button asChild className="bg-gokkerz-green text-white text-lg px-8 py-4 rounded-xl shadow-md hover:opacity-90">
+                <a href="https://www.loketkansspel.nl" target="_blank" rel="noopener noreferrer">
+                  Direct Hulp Zoeken
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
-
-      {/* Vercel Analytics */}
       <Analytics />
-      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </Layout>
   );
