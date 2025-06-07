@@ -1,4 +1,4 @@
-*,
+I*,
 *::after,
 *::before {
 	box-sizing: border-box;
@@ -79,6 +79,30 @@ main {
 
 .tiles__line {
 	animation: none;
+}
+
+/* Override for infinite scroll animations */
+.tiles__line {
+	position: relative;
+	backface-visibility: hidden;
+	perspective: 1000px;
+	transform: translate3d(0, 0, 0);
+	will-change: transform;
+	overflow: hidden;
+}
+
+.tiles__line.animate-scroll-left {
+	animation: scroll-left 20s linear infinite;
+}
+
+.tiles__line.animate-scroll-right {
+	animation: scroll-right 20s linear infinite;
+}
+
+/* Ensure logos are properly spaced */
+.tiles__line-img {
+	margin: 0 10px;
+	flex-shrink: 0;
 }
 
 /* Smooth hardware acceleration */
