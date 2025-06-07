@@ -39,6 +39,7 @@ import {
 import { casinoBrandColors } from '@/lib/casinoKleurenData';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import CasinoLogoSlider from '@/components/CasinoLogoSlider';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -366,90 +367,7 @@ const Index = () => {
             </div>
 
             {/* Right: Animated Casino Logos */}
-            <div 
-              className="relative overflow-hidden px-8 py-6"
-              style={{
-                maskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 8%, rgba(255,255,255,0.8) 15%, #fff 25%, #fff 75%, rgba(255,255,255,0.8) 85%, rgba(255,255,255,0.1) 92%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 8%, rgba(255,255,255,0.8) 15%, #fff 25%, #fff 75%, rgba(255,255,255,0.8) 85%, rgba(255,255,255,0.1) 92%, transparent 100%)"
-              }}
-            >
-              <div className="flex flex-col gap-6">
-                {/* Top Row - Moving Right */}
-                <div className="animate-scroll-right flex gap-8">
-                  {[
-                    'toto', 'holland casino', 'betcity', 
-                    'kansino', 'circus', 'jacks casino',
-                    'bingoal', 'unibet', 'bet mgm',
-                    // Duplicate for seamless loop
-                    'toto', 'holland casino', 'betcity', 
-                    'kansino', 'circus', 'jacks casino',
-                    'bingoal', 'unibet', 'bet mgm'
-                  ].map((logo, index) => (
-                    <div 
-                      key={`${logo}-${index}`}
-                      className="group flex-none w-28 aspect-square transform transition-all duration-300 hover:-translate-y-0.5"
-                    >
-                      <img
-                        src={`/casinologos/casilogos/${logo}.svg`}
-                        alt={logo}
-                        className="h-full w-full rounded-2xl bg-white/[0.02] object-contain p-2.5 shadow-[0_4px_12px_rgb(0,0,0,0.03)] transition-all duration-300 group-hover:shadow-[0_6px_20px_rgb(0,0,0,0.08)]"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Middle Row - Moving Left */}
-                <div className="animate-scroll-left flex gap-8">
-                  {[
-                    'ggpoker', 'leovegas', 'lucky 7 casino',
-                    'one casino', '777', '711',
-                    '365', 'fairplay casino', 'comeon',
-                    // Duplicate for seamless loop
-                    'ggpoker', 'leovegas', 'lucky 7 casino',
-                    'one casino', '777', '711',
-                    '365', 'fairplay casino', 'comeon'
-                  ].map((logo, index) => (
-                    <div 
-                      key={`${logo}-${index}`}
-                      className="group flex-none w-28 aspect-square transform transition-all duration-300 hover:-translate-y-0.5"
-                    >
-                      <img
-                        src={`/casinologos/casilogos/${logo}.svg`}
-                        alt={logo}
-                        className="h-full w-full rounded-2xl bg-white/[0.02] object-contain p-2.5 shadow-[0_4px_12px_rgb(0,0,0,0.03)] transition-all duration-300 group-hover:shadow-[0_6px_20px_rgb(0,0,0,0.08)]"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Bottom Row - Moving Right */}
-                <div className="animate-scroll-right flex gap-8">
-                  {[
-                    'vbet', 'winnit', 'ze bet',
-                    'tonybet', 'scori pro', 'goldrun casino',
-                    'hardrock casino', 'hommerson', 'betnation',
-                    // Duplicate for seamless loop
-                    'vbet', 'winnit', 'ze bet',
-                    'tonybet', 'scori pro', 'goldrun casino',
-                    'hardrock casino', 'hommerson', 'betnation'
-                  ].map((logo, index) => (
-                    <div 
-                      key={`${logo}-${index}`}
-                      className="group flex-none w-28 aspect-square transform transition-all duration-300 hover:-translate-y-0.5"
-                    >
-                      <img
-                        src={`/casinologos/casilogos/${logo}.svg`}
-                        alt={logo}
-                        className="h-full w-full rounded-2xl bg-white/[0.02] object-contain p-2.5 shadow-[0_4px_12px_rgb(0,0,0,0.03)] transition-all duration-300 group-hover:shadow-[0_6px_20px_rgb(0,0,0,0.08)]"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <CasinoLogoSlider />
           </div>
         </div>
 
