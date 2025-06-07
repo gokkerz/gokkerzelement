@@ -312,7 +312,7 @@ const Index = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-gradient-to-b from-white to-gray-50/60 pb-24 pt-16">
+      <section className="relative flex min-h-[85vh] items-center overflow-hidden pb-24 pt-16">
         <div className="container relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Left: Headline & Actions */}
@@ -371,15 +371,10 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Background Decorations */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-0 top-1/4 h-64 w-64 rounded-full bg-gradient-to-br from-gokkerz-green/20 to-transparent blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-0 h-64 w-64 rounded-full bg-gradient-to-tr from-gokkerz-green/10 to-transparent blur-2xl"></div>
-        </div>
       </section>
 
       {/* Featured Casinos Section */}
-      <section className="bg-gradient-to-b from-gray-50/50 to-white py-20">
+      <section className="py-20">
         <div className="container max-w-[1440px]">
           <div className="mb-16 text-center">
             <div className="inline-block">
@@ -551,7 +546,7 @@ const Index = () => {
       </section>
 
       {/* Casino Bonussen */}
-      <section className="bg-gradient-to-b from-white to-gray-50/50 py-20">
+      <section className="py-20">
         <div className="container">
           <div className="mb-16 text-center">
             <div className="inline-block">
@@ -824,7 +819,7 @@ const Index = () => {
       </section>
 
       {/* Games & Experience Section */}
-      <section className="bg-gradient-to-b from-gray-50/50 to-white py-20">
+      <section className="py-20">
         <div className="container">
           <div className="mb-16 text-center">
             <div className="inline-block">
@@ -953,7 +948,7 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-gray-50 py-16">
+      <section className="py-16">
         <div className="container">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Waarom Kiezen voor Gokkerz?</h2>
@@ -1001,7 +996,7 @@ const Index = () => {
       </section>
 
       {/* Latest Blog Posts */}
-      <section className="bg-gradient-to-b from-white to-gray-50/50 py-24">
+      <section className="py-24">
         <div className="container">
           <div className="mb-16 text-center">
             <span className="mb-4 inline-block rounded-full bg-gokkerz-green/10 px-4 py-1.5 text-sm font-medium text-gokkerz-green">

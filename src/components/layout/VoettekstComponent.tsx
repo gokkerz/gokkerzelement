@@ -42,7 +42,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-white to-gray-50/80 pt-16 pb-8">
+    <footer className="pt-16 pb-8 bg-white/50 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         {/* Main Footer */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
 
         {/* Enhanced Responsible Gambling Notice */}
-        <div className="mt-16 glassmorphism rounded-xl relative overflow-hidden text-center">
+        <div className="mt-16 bg-white/50 backdrop-blur-sm rounded-xl relative overflow-hidden text-center">
           <div className="relative z-10">
             {/* Header Section */}
             <div className="px-6 pt-8 pb-6 border-b border-gray-100">
@@ -136,9 +136,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Decorative background elements */}
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-gokkerz-green/5 to-transparent rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-gokkerz-green/5 to-transparent rounded-full blur-2xl opacity-50"></div>
         </div>
 
         {/* Bottom Footer */}

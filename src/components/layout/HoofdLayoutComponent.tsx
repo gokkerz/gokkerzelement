@@ -72,9 +72,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </p>
               </div>
 
-              {/* Decorative elements */}
-              <div className="absolute -top-12 -right-12 w-64 h-64 bg-gradient-to-br from-gokkerz-green/20 to-transparent rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-gradient-to-tr from-gokkerz-green/10 to-transparent rounded-full blur-2xl"></div>
+              {/* Removed decorative gradient backgrounds */}
             </div>
           </div>
         </div>
