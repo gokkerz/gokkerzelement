@@ -366,17 +366,27 @@ const Index = () => {
             </div>
 
             {/* Right: Animated Casino Logos */}
-            <div className="relative overflow-hidden px-8 py-6">
+            <div 
+              className="relative overflow-hidden px-8 py-6"
+              style={{
+                maskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 8%, rgba(255,255,255,0.8) 15%, #fff 25%, #fff 75%, rgba(255,255,255,0.8) 85%, rgba(255,255,255,0.1) 92%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 8%, rgba(255,255,255,0.8) 15%, #fff 25%, #fff 75%, rgba(255,255,255,0.8) 85%, rgba(255,255,255,0.1) 92%, transparent 100%)"
+              }}
+            >
               <div className="flex flex-col gap-6">
                 {/* Top Row - Moving Right */}
                 <div className="animate-scroll-right flex gap-8">
                   {[
                     'toto', 'holland casino', 'betcity', 
                     'kansino', 'circus', 'jacks casino',
+                    'bingoal', 'unibet', 'bet mgm',
+                    // Duplicate for seamless loop
+                    'toto', 'holland casino', 'betcity', 
+                    'kansino', 'circus', 'jacks casino',
                     'bingoal', 'unibet', 'bet mgm'
-                  ].map((logo) => (
+                  ].map((logo, index) => (
                     <div 
-                      key={logo}
+                      key={`${logo}-${index}`}
                       className="group flex-none w-28 aspect-square transform transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <img
@@ -394,10 +404,14 @@ const Index = () => {
                   {[
                     'ggpoker', 'leovegas', 'lucky 7 casino',
                     'one casino', '777', '711',
+                    '365', 'fairplay casino', 'comeon',
+                    // Duplicate for seamless loop
+                    'ggpoker', 'leovegas', 'lucky 7 casino',
+                    'one casino', '777', '711',
                     '365', 'fairplay casino', 'comeon'
-                  ].map((logo) => (
+                  ].map((logo, index) => (
                     <div 
-                      key={logo}
+                      key={`${logo}-${index}`}
                       className="group flex-none w-28 aspect-square transform transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <img
@@ -415,10 +429,14 @@ const Index = () => {
                   {[
                     'vbet', 'winnit', 'ze bet',
                     'tonybet', 'scori pro', 'goldrun casino',
+                    'hardrock casino', 'hommerson', 'betnation',
+                    // Duplicate for seamless loop
+                    'vbet', 'winnit', 'ze bet',
+                    'tonybet', 'scori pro', 'goldrun casino',
                     'hardrock casino', 'hommerson', 'betnation'
-                  ].map((logo) => (
+                  ].map((logo, index) => (
                     <div 
-                      key={logo}
+                      key={`${logo}-${index}`}
                       className="group flex-none w-28 aspect-square transform transition-all duration-300 hover:-translate-y-0.5"
                     >
                       <img

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./css/base.css";
+import "./base.css";
 
 const LOGOS = [
   "365.svg", "711.svg", "777.svg", "bet mgm.svg", "betcity.svg", "betnation.svg",
@@ -10,99 +10,99 @@ const LOGOS = [
 ];
 
 const ROWS = 5;
-const LOGOS_PER_ROW = 6;
-const LOGO_WIDTH = 480; // px
-const CONTAINER_WIDTH = 2880; // px
-const BASE_SPEED = 1.2; // Verdubbelde snelheid
+const LOGO_WIDTH = 480;
+const CONTAINER_WIDTH = 2880;
+const BASE_SPEED = 1.5;
 
-function getInitialLogoState() {
-  // Verdeel de logo's over de rijen
-  let state = [];
-  let idx = 0;
-  for (let row = 0; row < ROWS; row++) {
-    for (let i = 0; i < LOGOS_PER_ROW; i++) {
-      state.push({
-        file: LOGOS[idx % LOGOS.length],
-        row,
-        position: i * LOGO_WIDTH,
-        key: `${row}-${i}-${LOGOS[idx % LOGOS.length]}`
-      });
-      idx++;
-    }
+// Create duplicated logo arrays for infinite scroll
+function createInfiniteLogoArray(startIndex, count) {
+  const logos = [];
+  for (let i = 0; i < count * 2; i++) { // Duplicate for seamless loop
+    logos.push(LOGOS[(startIndex + i) % LOGOS.length]);
   }
-  return state;
+  return logos;
 }
 
 export default function CasinoLogoTiles() {
-  const linesRef = useRef([]);
-  const logoState = useRef(getInitialLogoState());
+  const rowRefs = useRef([]);
+  const animationRef = useRef();
 
   useEffect(() => {
-    let running = true;
+    const rows = rowRefs.current;
+    let animationId;
+
     function animate() {
-      if (!running) return;
-      for (let row = 0; row < ROWS; row++) {
-        const direction = row % 2 === 0 ? 1 : -1;
-        logoState.current.forEach(logo => {
-          if (logo.row === row) {
-            logo.position += BASE_SPEED * direction;
-            // Check of logo uit beeld is
-            if ((direction > 0 && logo.position > CONTAINER_WIDTH / 2) ||
-                (direction < 0 && logo.position < -CONTAINER_WIDTH / 2)) {
-              // Verplaats naar volgende rij
-              const nextRow = (logo.row + 1) % ROWS;
-              logo.row = nextRow;
-              logo.position = nextRow % 2 === 0 ? -CONTAINER_WIDTH / 2 : CONTAINER_WIDTH / 2;
-            }
-          }
-        });
-      }
-      // Force update
-      for (let row = 0; row < ROWS; row++) {
-        const line = linesRef.current[row];
-        if (line) {
-          // Filter logos for this row, sort by position
-          const rowLogos = logoState.current.filter(l => l.row === row).sort((a, b) => a.position - b.position);
-          rowLogos.forEach((logo, i) => {
-            const el = line.children[i];
-            if (el) {
-              el.style.transform = `translateX(${logo.position}px)`;
-            }
-          });
+      rows.forEach((row, index) => {
+        if (!row) return;
+        
+        const direction = index % 2 === 0 ? -1 : 1;
+        const currentTransform = row.style.transform || 'translateX(0px)';
+        const currentX = parseFloat(currentTransform.match(/translateX\(([^)]+)px\)/)?.[1] || 0);
+        
+        let newX = currentX + (BASE_SPEED * direction);
+        
+        // Reset position for infinite loop
+        const resetPoint = LOGO_WIDTH * (LOGOS.length / ROWS);
+        if (direction === -1 && newX <= -resetPoint) {
+          newX = 0;
+        } else if (direction === 1 && newX >= resetPoint) {
+          newX = 0;
         }
-      }
-      requestAnimationFrame(animate);
+        
+        row.style.transform = `translateX(${newX}px)`;
+      });
+      
+      animationId = requestAnimationFrame(animate);
     }
+
     animate();
-    return () => { running = false; };
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
   }, []);
 
-  // Render
-  let rows = [];
-  for (let row = 0; row < ROWS; row++) {
-    const rowLogos = logoState.current.filter(l => l.row === row);
-    rows.push(
+  const renderRow = (rowIndex) => {
+    const startIndex = Math.floor((rowIndex * LOGOS.length) / ROWS);
+    const logosPerRow = Math.ceil(LOGOS.length / ROWS) + 2; // Extra logos for seamless loop
+    const rowLogos = createInfiniteLogoArray(startIndex, logosPerRow);
+
+    return (
       <div
+        key={rowIndex}
         className="tiles__line"
-        key={row}
-        ref={el => (linesRef.current[row] = el)}
-        style={{ width: CONTAINER_WIDTH, height: 216, display: "flex", alignItems: "center", padding: 0 }}
+        ref={el => (rowRefs.current[rowIndex] = el)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          width: 'max-content',
+          height: 216,
+          willChange: 'transform'
+        }}
       >
-        {rowLogos.map(logo => (
+        {rowLogos.map((logo, logoIndex) => (
           <div
+            key={`${rowIndex}-${logoIndex}-${logo}`}
             className="tiles__line-img"
-            key={logo.key}
             style={{
-              backgroundImage: `url(/casilogos/${logo.file})`,
+              backgroundImage: `url(/casinologos/casilogos/${logo})`,
               width: LOGO_WIDTH,
-              height: 216,
-              margin: 0
+              height: 200,
+              margin: '0 10px',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              filter: 'grayscale(100%) contrast(1.2)',
+              opacity: 0.85,
+              flexShrink: 0
             }}
           />
         ))}
       </div>
     );
-  }
+  };
 
   return (
     <div
@@ -115,9 +115,9 @@ export default function CasinoLogoTiles() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        // Fade effect aan beide zijkanten, sterker en minder breed wit
-        maskImage: "linear-gradient(to right, transparent 0%, #fff 15%, #fff 85%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to right, transparent 0%, #fff 15%, #fff 85%, transparent 100%)"
+        // Enhanced fade effect with smoother gradients
+        maskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 5%, rgba(255,255,255,0.8) 12%, #fff 20%, #fff 80%, rgba(255,255,255,0.8) 88%, rgba(255,255,255,0.1) 95%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.1) 5%, rgba(255,255,255,0.8) 12%, #fff 20%, #fff 80%, rgba(255,255,255,0.8) 88%, rgba(255,255,255,0.1) 95%, transparent 100%)"
       }}
     >
       <div
@@ -137,10 +137,13 @@ export default function CasinoLogoTiles() {
             position: "absolute",
             left: "50%",
             top: "50%",
-            transform: "translate3d(-50%,-50%,0) rotate(22.5deg) scale(1.2)"
+            transform: "translate3d(-50%,-50%,0) rotate(22.5deg) scale(1.2)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly"
           }}
         >
-          {rows}
+          {Array.from({ length: ROWS }, (_, index) => renderRow(index))}
         </div>
       </div>
     </div>
