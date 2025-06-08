@@ -73,7 +73,7 @@ export const BonusCard = ({ offer }: BonusCardProps) => {
             <img
               src={offer.casinoLogo}
               alt={offer.casinoName}
-              className="h-24 w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+              className="h-24 w-auto transition-transform duration-300 group-hover:scale-105 rounded-[20%] shadow-[inset_14px_24px_25px_-21px_rgba(209,217,230,0.34),inset_14px_28px_29px_-21px_rgba(209,217,230,0.4),inset_14px_35px_36px_-21px_rgba(209,217,230,0.48),inset_14px_54px_52px_-21px_rgba(209,217,230,0.67),inset_-36px_-63px_56px_-21px_rgba(255,255,255,0.75),inset_-36px_-36.8341px_33.671899999999994px_-21px_rgba(255,255,255,0.54),inset_-36px_-31.3638px_26.025999999999996px_-21px_rgba(255,255,255,0.45),inset_-36px_-28.4185px_25px_-21px_rgba(255,255,255,0.38)]"
             />
             <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 transform">
               <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-md">

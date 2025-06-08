@@ -40,6 +40,7 @@ import { casinoBrandColors } from '@/lib/casinoKleurenData';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import CasinoLogoSlider from '@/components/CasinoLogoSlider';
+import { casinoLogoStyles } from '@/lib/styles';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -201,11 +202,11 @@ const Index = () => {
       <CardHeader className="relative p-4 text-center">
         <div className="flex flex-col items-center">
           <div className="relative mb-4">
-            <img
-              src={casino.logo}
-              alt={casino.name}
-              className="h-24 w-auto rounded-[10%] transition-transform duration-300 group-hover:scale-105"
-            />
+              <img
+                src={casino.logo}
+                alt={casino.name}
+                className={`h-24 w-auto transition-transform duration-300 group-hover:scale-105 ${casinoLogoStyles.logo}`}
+              />
             <div className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 transform items-center rounded-full bg-white/90 px-2 py-0.5 shadow-sm">
               <Star className="mr-0.5 h-3 w-3 fill-yellow-400 text-yellow-400" />
               <span className="text-xs font-medium">{casino.rating}</span>
@@ -434,7 +435,7 @@ const Index = () => {
                               <img
                                 src={casino.logo}
                                 alt={casino.name}
-                                className="h-20 w-[180px] rounded-[10%] object-contain"
+                                className="h-20 w-[180px] object-contain transition-transform duration-300 group-hover:scale-105 rounded-[20%] shadow-[inset_14px_24px_25px_-21px_rgba(209,217,230,0.34),inset_14px_28px_29px_-21px_rgba(209,217,230,0.4),inset_14px_35px_36px_-21px_rgba(209,217,230,0.48),inset_14px_54px_52px_-21px_rgba(209,217,230,0.67),inset_-36px_-63px_56px_-21px_rgba(255,255,255,0.75),inset_-36px_-36.8341px_33.671899999999994px_-21px_rgba(255,255,255,0.54),inset_-36px_-31.3638px_26.025999999999996px_-21px_rgba(255,255,255,0.45),inset_-36px_-28.4185px_25px_-21px_rgba(255,255,255,0.38)]"
                               />
                             </div>
                             <span className="text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
@@ -576,7 +577,7 @@ const Index = () => {
                       <img
                         src={bonus.logo}
                         alt={bonus.casino}
-                        className="h-24 w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+                        className={`h-24 w-auto transition-transform duration-300 group-hover:scale-105 ${casinoLogoStyles.logo}`}
                       />
                       <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 transform">
                         <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-md">
