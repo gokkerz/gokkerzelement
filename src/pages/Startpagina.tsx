@@ -41,6 +41,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import CasinoLogoSlider from '@/components/CasinoLogoSlider';
 import { casinoLogoStyles } from '@/lib/styles';
+import { useMediaQuery } from 'react-responsive';
 
 const getCasinoUrl = (casinoName: string) => {
   const urls: { [key: string]: string } = {
@@ -189,7 +190,7 @@ const Index = () => {
     },
   ];
 
-  const isMobile = useIsMobile('(max-width: 1023px)');
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const renderCasinoCard = (casino: (typeof featuredCasinos)[0]) => (
     <Card
@@ -315,12 +316,65 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative flex min-h-[85vh] items-center overflow-hidden pb-24 pt-16">
         <div className="container relative z-10">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            {/* Left: Headline & Actions */}
-            <div className="flex flex-col gap-8 text-center lg:text-left mb-12 lg:mb-0">
-              <div className="flex flex-col items-center gap-6 lg:items-start">
-                {/* Hero section top badges */}
-                <div className="mb-4 flex items-center">
+          {isMobile ? (
+            // Mobile version
+            <div className="flex flex-col items-center text-center mb-12">
+              {/* Hero section top badge */}
+              <div className="mb-4 flex items-center">
+                <span className="inline-flex items-center rounded-lg bg-white/80 px-4 py-2 shadow-sm">
+                  <Award className="mr-2 h-5 w-5 text-gokkerz-green" />
+                  <span className="font-medium">Beste Keuze 2025</span>
+                </span>
+              </div>
+
+              <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl xl:text-6xl max-w-4xl">
+                <span className="bg-gradient-to-r from-gokkerz-green to-green-600 bg-clip-text text-transparent">
+                  Ontdek Alle Nederlandse
+                </span>
+                <br />
+                Online Casinos
+              </h1>
+
+              <p className="max-w-3xl text-lg text-gray-600 md:text-xl mt-4 mb-8">
+                Op zoek naar de beste bonussen, hoge RTP's, snelle uitbetalingen en de nieuwste, veiligste én legale online casino's van Nederland? Bij Gokkerz.nl vindt je actueel casinonieuws, eerlijke reviews en meer.
+              </p>
+
+              <div className="flex flex-col gap-4 sm:flex-row justify-center mb-12">
+                <Button
+                  asChild
+                  size="lg"
+                  className="button-pulse bg-green-gradient px-8 py-6 shadow-lg hover:opacity-90"
+                >
+                  <Link
+                    to="/casinos"
+                    className="inline-flex items-center gap-2 text-lg font-semibold"
+                  >
+                    Bekijk Casino's
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-2 px-8 py-6">
+                  <Link
+                    to="/bonussen"
+                    className="inline-flex items-center gap-2 text-lg font-semibold"
+                  >
+                    Casino Bonussen
+                    <Gift className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Casino Logo Slider */}
+              <div className="w-full">
+                <CasinoLogoSlider />
+              </div>
+            </div>
+          ) : (
+            // Desktop version
+            <div className="grid grid-cols-2 gap-8">
+              <div className="flex flex-col justify-center">
+                {/* Hero section top badge */}
+                <div className="mb-4">
                   <span className="inline-flex items-center rounded-lg bg-white/80 px-4 py-2 shadow-sm">
                     <Award className="mr-2 h-5 w-5 text-gokkerz-green" />
                     <span className="font-medium">Beste Keuze 2025</span>
@@ -329,18 +383,17 @@ const Index = () => {
 
                 <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl xl:text-6xl">
                   <span className="bg-gradient-to-r from-gokkerz-green to-green-600 bg-clip-text text-transparent">
-                    Vind het Beste
+                    Ontdek Alle Nederlandse
                   </span>
                   <br />
-                  Online Casino
+                  Online Casinos
                 </h1>
 
-                <p className="max-w-xl text-lg text-gray-600 md:text-xl">
-                  Ontdek betrouwbare online casino's met de beste bonussen en een uitgebreid
-                  spelaanbod. 100% legaal en KSA-vergund.
+                <p className="max-w-xl text-lg text-gray-600 md:text-xl mt-4 mb-8">
+                  Op zoek naar de beste bonussen, hoge RTP's, snelle uitbetalingen en de nieuwste, veiligste én legale online casino's van Nederland? Bij Gokkerz.nl vindt je actueel casinonieuws, eerlijke reviews en meer.
                 </p>
 
-                <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
+                <div className="flex gap-4">
                   <Button
                     asChild
                     size="lg"
@@ -365,11 +418,13 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
-            </div>
 
-            {/* Right: Animated Casino Logos */}
-            <CasinoLogoSlider />
-          </div>
+              {/* Casino Logo Slider */}
+              <div className="flex items-center">
+                <CasinoLogoSlider />
+              </div>
+            </div>
+          )}
         </div>
 
       </section>
@@ -431,11 +486,11 @@ const Index = () => {
                       >
                         <TableCell className="py-6 font-medium">
                           <div className="flex items-center gap-6">
-                            <div className="flex min-w-[160px] items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                            <div className="flex min-w-[160px] items-center justify-center">
                               <img
                                 src={casino.logo}
                                 alt={casino.name}
-                                className="h-20 w-[180px] object-contain transition-transform duration-300 group-hover:scale-105 rounded-[20%] shadow-[inset_14px_24px_25px_-21px_rgba(209,217,230,0.34),inset_14px_28px_29px_-21px_rgba(209,217,230,0.4),inset_14px_35px_36px_-21px_rgba(209,217,230,0.48),inset_14px_54px_52px_-21px_rgba(209,217,230,0.67),inset_-36px_-63px_56px_-21px_rgba(255,255,255,0.75),inset_-36px_-36.8341px_33.671899999999994px_-21px_rgba(255,255,255,0.54),inset_-36px_-31.3638px_26.025999999999996px_-21px_rgba(255,255,255,0.45),inset_-36px_-28.4185px_25px_-21px_rgba(255,255,255,0.38)]"
+                                className="h-20 w-20 object-contain"
                               />
                             </div>
                             <span className="text-lg font-semibold transition-colors group-hover:text-gokkerz-green">

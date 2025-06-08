@@ -24,12 +24,14 @@ import useMediaQuery from '@/hooks/gebruikMobielHook';
 import HeroHeader from '@/components/HeroHeader';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { casinoLogoStyles } from '@/lib/styles';
 
 export const casinos = [
   {
     id: 1,
     name: 'TOTO Casino',
     logo: '/casinologos/casilogos/toto.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.8,
     bonus: '100% tot €1000 + 100 Free Spins',
     minDeposit: '€10',
@@ -39,6 +41,7 @@ export const casinos = [
     id: 2,
     name: 'BetCity',
     logo: '/casinologos/casilogos/betcity.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.7,
     bonus: '€250 + 100 Free Spins',
     minDeposit: '€10',
@@ -48,6 +51,7 @@ export const casinos = [
     id: 3,
     name: 'Holland Casino',
     logo: '/casinologos/casilogos/holland casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.9,
     bonus: '100% tot €200 + 100 Free Spins',
     minDeposit: '€10',
@@ -57,6 +61,7 @@ export const casinos = [
     id: 4,
     name: 'Kansino',
     logo: '/casinologos/casilogos/kansino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.6,
     bonus: '100% tot €500 + 100 Free Spins',
     minDeposit: '€10',
@@ -66,6 +71,7 @@ export const casinos = [
     id: 5,
     name: 'Circus Casino',
     logo: '/casinologos/casilogos/circus.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €250',
     minDeposit: '€10',
@@ -75,6 +81,7 @@ export const casinos = [
     id: 6,
     name: "Jack's Casino",
     logo: '/casinologos/casilogos/jacks casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.7,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -84,6 +91,7 @@ export const casinos = [
     id: 7,
     name: 'Unibet',
     logo: '/casinologos/casilogos/unibet.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.8,
     bonus: '100% tot €300',
     minDeposit: '€10',
@@ -93,6 +101,7 @@ export const casinos = [
     id: 8,
     name: 'LeoVegas',
     logo: '/casinologos/casilogos/leovegas.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.7,
     bonus: '€1000 + 50 Free Spins',
     minDeposit: '€10',
@@ -102,6 +111,7 @@ export const casinos = [
     id: 9,
     name: '777',
     logo: '/casinologos/casilogos/777.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -111,6 +121,7 @@ export const casinos = [
     id: 10,
     name: 'Fair Play',
     logo: '/casinologos/casilogos/fairplay casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.6,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -120,6 +131,7 @@ export const casinos = [
     id: 11,
     name: '365',
     logo: '/casinologos/casilogos/365.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.7,
     bonus: '100% tot €365',
     minDeposit: '€10',
@@ -129,6 +141,7 @@ export const casinos = [
     id: 12,
     name: '711',
     logo: '/casinologos/casilogos/711.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.4,
     bonus: '100% tot €100',
     minDeposit: '€10',
@@ -138,6 +151,7 @@ export const casinos = [
     id: 13,
     name: 'Bet MGM',
     logo: '/casinologos/casilogos/bet mgm.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.8,
     bonus: '100% tot €500',
     minDeposit: '€10',
@@ -147,6 +161,7 @@ export const casinos = [
     id: 14,
     name: 'BetNation',
     logo: '/casinologos/casilogos/betnation.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '200% tot €200',
     minDeposit: '€10',
@@ -156,6 +171,7 @@ export const casinos = [
     id: 15,
     name: 'Bingoal',
     logo: '/casinologos/casilogos/bingoal.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.4,
     bonus: '100% tot €250',
     minDeposit: '€10',
@@ -165,6 +181,7 @@ export const casinos = [
     id: 16,
     name: 'ComeOn',
     logo: '/casinologos/casilogos/comeon.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.6,
     bonus: '100% tot €300',
     minDeposit: '€10',
@@ -174,6 +191,7 @@ export const casinos = [
     id: 17,
     name: 'GGPoker',
     logo: '/casinologos/casilogos/ggpoker.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.7,
     bonus: '100% tot €600',
     minDeposit: '€10',
@@ -183,6 +201,7 @@ export const casinos = [
     id: 18,
     name: 'Goldrun Casino',
     logo: '/casinologos/casilogos/goldrun casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €250',
     minDeposit: '€10',
@@ -192,6 +211,7 @@ export const casinos = [
     id: 19,
     name: 'Hard Rock Casino',
     logo: '/casinologos/casilogos/hardrock casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.8,
     bonus: '100% tot €1000',
     minDeposit: '€10',
@@ -201,6 +221,7 @@ export const casinos = [
     id: 20,
     name: 'Hommerson',
     logo: '/casinologos/casilogos/hommerson.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -210,6 +231,7 @@ export const casinos = [
     id: 21,
     name: 'Lucky 7 Casino',
     logo: '/casinologos/casilogos/lucky 7 casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.4,
     bonus: '777 Free Spins',
     minDeposit: '€10',
@@ -219,6 +241,7 @@ export const casinos = [
     id: 22,
     name: 'One Casino',
     logo: '/casinologos/casilogos/one casino.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.6,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -228,6 +251,7 @@ export const casinos = [
     id: 23,
     name: 'Scori Pro',
     logo: '/casinologos/casilogos/scori pro.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €300',
     minDeposit: '€10',
@@ -237,6 +261,7 @@ export const casinos = [
     id: 24,
     name: 'TonyBet',
     logo: '/casinologos/casilogos/tonybet.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.6,
     bonus: '100% tot €300',
     minDeposit: '€10',
@@ -246,6 +271,7 @@ export const casinos = [
     id: 25,
     name: 'VBet',
     logo: '/casinologos/casilogos/vbet.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €500',
     minDeposit: '€10',
@@ -255,6 +281,7 @@ export const casinos = [
     id: 26,
     name: 'Winnit',
     logo: '/casinologos/casilogos/winnit.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.4,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -264,6 +291,7 @@ export const casinos = [
     id: 27,
     name: 'ZeBet',
     logo: '/casinologos/casilogos/ze bet.svg',
+    logoClassName: "rounded-[10%] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.27),inset_0px_10px_10px_-5px_rgba(0,0,0,0.04),inset_-17px_18px_45px_0px_rgba(19,18,18,0.13),inset_34px_-29px_53px_-10px_rgba(190,190,190,0.17)]",
     rating: 4.5,
     bonus: '100% tot €200',
     minDeposit: '€10',
@@ -347,16 +375,16 @@ const Casinos = () => {
     >
       <CardHeader className="relative p-4 text-center">
         <div className="flex flex-col items-center">
-          <div className="relative mb-4">
+          <div className="mb-4 w-[100px] mx-auto">
             <img
               src={casino.logo}
               alt={casino.name}
-              className="h-24 w-auto rounded-[10%] transition-transform duration-300 group-hover:scale-105"
+              className={`h-auto w-full object-contain ${casinoLogoStyles.logo}`}
             />
-            <div className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 transform items-center rounded-full bg-white/90 px-2 py-0.5 shadow-sm">
-              <Star className="mr-0.5 h-3 w-3 fill-yellow-400 text-yellow-400" />
-              <span className="text-xs font-medium">{casino.rating}</span>
-            </div>
+          </div>
+          <div className="flex justify-center items-center rounded-full bg-white/90 px-2 py-0.5 shadow-sm">
+            <Star className="mr-0.5 h-3 w-3 fill-yellow-400 text-yellow-400" />
+            <span className="text-xs font-medium">{casino.rating}</span>
           </div>
           <CardTitle className="mb-3 text-lg">{casino.name}</CardTitle>
         </div>
@@ -515,17 +543,19 @@ const Casinos = () => {
                       className="group transition-colors duration-200 hover:bg-gray-50/80"
                     >
                       <TableCell className="py-6 font-medium">
-                        <div className="flex items-center gap-6">
-                          <div className="flex h-20 w-[180px] items-center justify-center transition-transform duration-200 group-hover:scale-105">
+                        <div className="flex items-center gap-12">
+                          <div className="w-[100px] flex-shrink-0">
                             <img
                               src={casino.logo}
                               alt={casino.name}
-                              className="h-20 w-[180px] rounded-[10%] object-contain"
+                              className={`h-auto w-full object-contain ${casinoLogoStyles.logo}`}
                             />
                           </div>
-                          <span className="min-w-[120px] text-left text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
-                            {casino.name}
-                          </span>
+                          <div className="min-w-[120px] flex-grow">
+                            <span className="block text-left text-lg font-semibold transition-colors group-hover:text-gokkerz-green">
+                              {casino.name}
+                            </span>
+                          </div>
                         </div>
                       </TableCell>
                       <TableCell>
